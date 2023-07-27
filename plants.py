@@ -4,11 +4,12 @@ import urllib.request
 import re
 import time
 import datetime
+import config
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="Casino.69",
+  host=config.DB_HOST,
+  user=config.DB_USER,
+  password=config.DB_PASS,
   database="plants"
 )
 
