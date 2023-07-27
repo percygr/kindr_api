@@ -27,7 +27,7 @@
             $projects = array(
                 array(
                     'images' => array('images/solartracker.jpg', 'images/esp32radio.jpg', 'images/solartracker.jpg'),
-                    'description' => 'Project 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    'description' => 'Project 1: Lorem ipsum dolor sit amet<br>consectetur adipiscing elit.',
                 ),
                 array(
                     'images' => array('images/esp32radio.jpg', 'images/solartracker.jpg', 'images/esp32radio.jpg'),

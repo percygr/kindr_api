@@ -1,7 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Casino.69";
+include('secrets.php');
+
+$servername = DB_HOST;
+$username = DB_USER;
+$password = DB_PASS;
 $dbname = "names";
 
 echo '
@@ -19,8 +21,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
-}
-
+} 
+  
 $coinflip = rand(0,1);
 
 if ($coinflip == 0) {
