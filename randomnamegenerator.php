@@ -7,6 +7,7 @@ $password = DB_PASS;
 $dbname = "names";
 
 echo '
+<!DOCTYPE html><html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>';
@@ -98,7 +99,7 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-echo "<br><br><br><table width=400 align=center><tr><td align=center>Your random ";
+echo "<body><br><br><br><table width=400 align=center><tr><td align=center>Your random ";
 
 if ($coinflip ==0) {echo "male";} else {echo "female";}
 
@@ -106,6 +107,8 @@ echo " name is -<br><br></td></tr><tr><td align=center><h1>";
 
 echo $chosenfirstname." ".$chosensurname;
 
-echo "</h1></td></tr><tr><td align=center><br>Refresh for a new name</td></tr></table>"
+echo '</h1></td></tr><tr><td align=center><br><input type="button" value="Click here for a new name" onclick="refreshPage()"></td></tr></table>';
+
+echo '<script>function refreshPage() {location.reload();}</script></body></html>';
 
 ?>
