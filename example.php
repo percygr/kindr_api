@@ -13,7 +13,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-echo '<p>Hello Adie</p>';
+echo '<p>Hello World</p>';
 
 // prints e.g. 'Current PHP version: 4.1.1'
 echo 'Current PHP version: ' . phpversion();
