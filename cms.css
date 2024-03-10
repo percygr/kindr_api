@@ -14,6 +14,19 @@ body {
     max-width: 1200px;
 }
 
+a {
+    color: #e1de1d;
+    text-decoration: none;
+}
+a.visited {
+    color: #8d8b28;
+    text-decoration: none;
+}
+a:hover {
+    color: #e4e272;
+    text-decoration: underline;
+}
+
 .image-container {
     text-align: center;
     /* Center-align the content */
