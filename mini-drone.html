@@ -12,7 +12,8 @@
         
         <div class="drone_item">
             <h1>Super Budget Mini Drone Project</h1><br>
-            An attempt to make a cheap drone controlled by a microcontroller and PWM mosfet circuit rather than using an expensive flight controller board and ESCs. The microcontroller will likely be an ESP32 rather than an Arduino or Pi because of its faster processor.
+            An attempt to make a cheap drone controlled by a microcontroller and PWM mosfet circuit rather than using an expensive flight controller board and ESCs. 
+            The microcontroller will likely be an ESP32 rather than an Arduino or Pi because of its faster processor. This will become important when the time comes to add flight controller software.
             <br /><br />
             Parts - <br><br>
             
@@ -28,7 +29,7 @@
             I noted the red and blue wire orientation to remind myself which colour to attach to the positive terminal to make it turn the correct way because, as we know, drones need two pairs of rotors spinning in opposite directions.<br>
             <br>            
             <center><img src="images/circuit.png" alt="Circuit diagram for each motor" width="800px"></center><br>
-            I 3d printed a basic frame and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like. The 4 empty headers at the front are the 
+            I 3d printed a basic frame and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like, as you can see below. The 4 empty headers at the front are the 
             PWM inputs for each motor, the empty header at the back is for the ground connection from the microcontroller.<br><br>
             <img src="images/drone1.jpeg" alt="Board with 4 motor circuits" width="100%"><br><br>
             To do:
@@ -40,12 +41,12 @@
                 <li>Check how hot the mosfets and battery gets after running for a bit. Each motor seems to draw up to 1.2 amps and although the mosfets can handle this much I might need to attach some heat sinks. 
                     I should be using two batteries but I seriously doubt it'll be able lift both.</li>
                 <li>Attach a 
-                    <a href="https://www.aliexpress.com/item/1005005992276197.html">little 4 channel rc reciever</a> to the microcontroller for input.
+                    <a href="https://www.aliexpress.com/item/1005005992276197.html">little 4 channel rc reciever</a> to the microcontroller
                     <br>... or<br>
                     use the bluetooth capabilities of the ESP32 to 
-                    <a href="https://github.com/jvpernis/esp32-ps3"> use a ps3 controller</a>
+                    <a href="https://github.com/jvpernis/esp32-ps3"> use a ps3 controller</a> for input.
                 </li>
-                <li>Attach a 
+                <li>Attach something like a
                     <a href="https://www.amazon.co.uk/DollaTek-MPU-6050-mpu6050-Accelerometer-Arduino/dp/B07DJ4KMBF/" target="_blank">MPU6050 Accelerometer/Gyroscope</a>
                     and look for some third party flight controller software to keep it stable.</li>
             </ul>
