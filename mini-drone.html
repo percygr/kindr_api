@@ -21,18 +21,19 @@
             Parts - <br><br>
             
             4 each of:<br>
-            
-            1N4007 diode (not the diode listed in the diagram below)<br>
-            IRF540N mosfet<br>
-            3.2k ohm resistor. I used 1k + 2.2k because that’s what I had to hand.<br>
-            <a href="https://www.aliexpress.com/item/4000530818149.html">Mini coreless 8520 motor and props</a><br>
-            I connected a toggle switch between the battery and the 4 motor circuits to turn the power off and on<br>
+            <ul>
+                <li>1N4007 diode (not the diode listed in the diagram below)</li>
+                <li>IRF540N mosfet</li>
+                <li>3.2k ohm resistor. I used 1k + 2.2k because that’s what I had to hand.</li>
+                <li><a href="https://www.aliexpress.com/item/4000530818149.html">Mini coreless 8520 motor and props</a></li>
+            </ul>
+            I connected a toggle switch between the battery and the 4 motor circuits as a power switch.
             <br><br>
             This is the circuit diagram for each motor. It is centered around the mosfet which controls the amount of voltage sent to the motor depending on the PWM input. 
             I noted the red and blue wire orientation to remind myself which colour to attach to the positive terminal to make it turn the correct way because, as we know, drones need two pairs of rotors spinning in opposite directions.<br>
             <br>            
             <center><img src="images/circuit.png" alt="Circuit diagram for each motor" width="800px"></center><br>
-            I 3d printed a basic frame and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like, as you can see below. The 4 empty headers at the front are the 
+            I 3d printed a basic frame and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like as you can see below. The 4 empty headers at the front are the 
             PWM inputs for each motor, the empty header at the back is for the ground connection from the microcontroller.<br><br>
             <img src="images/drone1.jpeg" alt="Board with 4 motor circuits" width="100%"><br><br>
             To do:
