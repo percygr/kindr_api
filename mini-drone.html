@@ -27,22 +27,23 @@
             I noted the red and blue wire orientation to remind myself which to attach to the positive terminal to make it turn the correct way because, as we know, drones need two pairs of rotors spinning in opposite directions.<br>
             <br>            
             <center><img src="images/circuit.png" alt="Circuit diagram for each motor" width="800px"></center><br>
-            I 3d printed a basic frame for the motors and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like. The 4 empty headers at the front are the 
-            PWM inputs for each motor, the empty header at the back is for the ground from the microcontroller.<br><br>
+            I 3d printed a basic frame and connected an 18650 battery. I crammed 4 of the above circuits onto this board, very spaghetti like. The 4 empty headers at the front are the 
+            PWM inputs for each motor, the empty header at the back is for the ground connection from the microcontroller.<br><br>
             <img src="images/drone1.jpeg" alt="Board with 4 motor circuits" width="100%"><br><br>
             To do:
             <br><br>
             <ul>
-                <li>Program and attach a microcontroller to output PWM signals and test each rotor</li>
-                <li>Somehow attach the battery and microcontroller to the body see it it can lift that much weight.</li>
+                <li>Program and attach a microcontroller to output PWM signals and test each rotor.</li>
+                <li>Somehow attach the battery and microcontroller to the body see it it can lift that much weight. 
+                    I might have to design a new drone body that incorporates a battery holder and some sort of shelf for the microcontroller.</li>
                 <li>Check how hot the mosfets and battery gets after running for a bit. Each motor seems to draw up to 1.2 amps and although the mosfets can handle this much I might need to attach some heat sinks. 
                     I should be using two batteries but I seriously doubt it'll be able lift both.</li>
                 <li>Attach a 
-                    <a href="https://www.aliexpress.com/item/1005005992276197.html">little 4 channel rc reciever</a> to the microcontroller for input
+                    <a href="https://www.aliexpress.com/item/1005005992276197.html">little 4 channel rc reciever</a> to the microcontroller for input.
                 </li>
                 <li>Attach a 
                     <a href="https://www.amazon.co.uk/DollaTek-MPU-6050-mpu6050-Accelerometer-Arduino/dp/B07DJ4KMBF/" target="_blank">MPU6050 Accelerometer/Gyroscope</a>
-                    and look for some third party flight controller software to keep it stable</li>
+                    and look for some third party flight controller software to keep it stable.</li>
             </ul>
             <br>
             
