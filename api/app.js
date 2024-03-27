@@ -21,7 +21,7 @@ app.get("/temp/:temp", (req, res) => {
     return res.status(400).json({ error: "Temperature value is missing." });
   }
 
-  // add to database
+  // add to database - to do
 
   //res.json("Success");
   res.status(200).send();
