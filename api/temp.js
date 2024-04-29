@@ -12,10 +12,11 @@ app.use(bodyParser.json());
 app.get("/temp/:temp", (req, res) => {
   //const { temperature } = req.body;
   const temperature = req.params.temp;
-  console.log(temperature);
-  // also console log the time and date
   const date = new Date();
-  console.log(date);
+
+  console.log(
+    temperature + "°C " + date.toDateString() + " " + date.toTimeString()
+  );
 
   if (temperature === undefined || temperature === null) {
     return res.status(400).json({ error: "Temperature value is missing." });
@@ -23,7 +24,7 @@ app.get("/temp/:temp", (req, res) => {
 
   // add to database - to do
 
-  //res.json("Success");
+  res.json("Success");
   res.status(200).send();
 });
 

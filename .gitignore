@@ -1,2 +1,4 @@
 secrets.php
 config.py
+.env
+/node_modules
