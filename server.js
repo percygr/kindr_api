@@ -148,6 +148,62 @@ app.put("/tasks/:id/status", (req, res) => {
   });
 });
 
+// Define a route to update a task
+app.put("/tasks/:id", async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const {
+      title,
+      description,
+      location,
+      duration,
+      show_email,
+      show_phone,
+      category_id,
+    } = req.body;
+
+    // Construct the SQL statement to update the task
+    const query = `
+      UPDATE tasks 
+      SET title = ?, description = ?, location = ?, duration = ?,
+          show_email = ?, show_phone = ?, category_id = ?
+      WHERE id = ?
+    `;
+
+    // Execute the SQL query with the provided parameters
+    connection.query(
+      query,
+      [
+        title,
+        description,
+        location,
+        duration,
+        show_email,
+        show_phone,
+        category_id,
+        taskId,
+      ],
+      (err, results) => {
+        if (err) {
+          console.error("Error updating task:", err);
+          return res.status(500).json({ error: "Internal server error" });
+        }
+
+        // Check if any rows were affected
+        if (results.affectedRows === 0) {
+          return res.status(404).json({ error: "Task not found" });
+        }
+
+        // Send a success response
+        res.status(200).json({ success: true });
+      }
+    );
+  } catch (error) {
+    console.error("Error updating task:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
