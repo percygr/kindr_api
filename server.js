@@ -114,6 +114,40 @@ app.get("/tasks", (req, res) => {
   });
 });
 
+// Define a route to update the status of a task
+app.put("/tasks/:id/status", (req, res) => {
+  const { id } = req.params; // Extract the task ID from the request params
+  const { statusId, userId } = req.body; // Extract statusId and userId from request body
+
+  // Check if statusId and userId are provided
+  if (statusId === undefined || userId === undefined) {
+    return res.status(400).json({ error: "statusId and userId are required" });
+  }
+
+  // Construct the SQL statement to update the task's status
+  const query = `
+    UPDATE tasks 
+    SET status_id = ?, helper_id = ?
+    WHERE id = ?
+  `;
+
+  // Execute the query with the provided parameters
+  connection.query(query, [statusId, userId, id], (err, results) => {
+    if (err) {
+      console.error("Error updating task status:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+
+    // Check if any rows were affected
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+
+    // Send a success response
+    res.status(200).json({ success: true });
+  });
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
