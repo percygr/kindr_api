@@ -7,8 +7,19 @@ dotenv.config();
 
 // Create Express app
 const app = express();
-
 app.use(express.json());
+const cors = require("cors");
+
+// Define an array of allowed origins
+const allowedOrigins = ["http://localhost:3001", "https://api.percydb.co.uk"];
+
+// Use CORS middleware with options
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
 // Database connection configuration
 const connection = mysql.createConnection({
@@ -200,6 +211,63 @@ app.put("/tasks/:id", async (req, res) => {
     );
   } catch (error) {
     console.error("Error updating task:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Define a route to update a user profile
+app.put("/profile/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const {
+      firstname,
+      surname,
+      telephone,
+      postcode,
+      dob,
+      address,
+      avatar_link,
+      bio,
+    } = req.body;
+
+    // Construct the SQL statement to update the user profile
+    const query = `
+      UPDATE kindr_users 
+      SET firstname = ?, surname = ?, telephone = ?, postcode = ?, dob = ?, address = ?, avatar_link = ?, bio = ?
+      WHERE id = ?
+    `;
+
+    // Execute the SQL query with the provided parameters
+    connection.query(
+      query,
+      [
+        firstname,
+        surname,
+        telephone,
+        postcode,
+        dob,
+        address,
+        avatar_link,
+        bio,
+        userId,
+      ],
+      (err, results) => {
+        if (err) {
+          console.error("Error updating user profile:", err);
+          return res.status(500).json({ error: "Internal server error" });
+        }
+
+        // Check if any rows were affected
+        if (results.affectedRows === 0) {
+          return res.status(404).json({ error: "User not found" });
+        }
+
+        // Send a success response
+        res.status(200).json({ success: true });
+      }
+    );
+  } catch (error) {
+    console.error("Error updating user profile:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
